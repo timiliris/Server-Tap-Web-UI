@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true" style="--ion-background-color: rgba(4,11,22,0.65)">
+  <ng-particles
+    id="particleAuth"
+    [options]="particle.particlesOptions"
+    [particlesInit]="particle.particlesInit"
+    (particlesLoaded)="particle.particlesLoaded($event)"
+  >
+  </ng-particles>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="4" size-xs="12">
+        <ion-card-title class="ion-text-center ion-padding">
+          <ion-img src="{{environment.logo_url}}" style="height: 20vh" ></ion-img>
+         <p>{{environment.server_name}}</p>
+        </ion-card-title>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<div id="container">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="12" size-xl="4">
+        <ion-card>
+          <ion-card-title class="ion-text-center ion-padding">
+            Auth
+          </ion-card-title>
+          <ion-card-subtitle>
+            <ion-text color="warning">Default username and password are deffine in the .env</ion-text>
+          </ion-card-subtitle>
+          <ion-card-content>
+            <div class="ion-padding">
+              <ion-input
+                aria-label="Username"
+                fill="outline"
+                shape="round"
+                label="UserName"
+                type="text"
+                labelPlacement="fixed"
+                #UserName
+              >
+              </ion-input>
+            </div>
+            <div class="ion-padding">
+              <ion-input
+                aria-label="Password"
+                fill="outline"
+                shape="round"
+                label="Password"
+                type="password"
+                labelPlacement="fixed"
+                #Password
+              >
+              </ion-input>
+            </div>
+          </ion-card-content>
+          <ion-button class="ion-padding" fill="outline" shape="round" color="success" (click)="auth.login(UserName, Password)" >Login</ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>

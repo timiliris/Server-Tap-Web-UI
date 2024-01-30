@@ -1,0 +1,23 @@
+.thumbnail-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ion-popover {
+  --width: 300px;
+  --border-radius: 2vh;
+  --border-width: 1px;
+  --border-color: rgba(100, 237, 207, 0.2);
+  --ion-background-color: rgba(100, 237, 207, 0);
+  --background: transparent; /* Assurez-vous que le fond est transparent */
+}
+
+/* Styles spécifiques au contenu du popover */
+ion-popover ion-content {
+  border-radius: 2vh;
+  border: 1px solid rgba(100, 237, 207, 0.2);
+  background-color: rgba(33, 241, 197, 0.55);
+}
+ion-img:hover{
+  translate: 1px;
+}

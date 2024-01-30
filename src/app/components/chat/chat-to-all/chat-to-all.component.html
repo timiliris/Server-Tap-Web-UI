@@ -1,0 +1,20 @@
+<div style="height: 91vh; border-radius: 2vh;border: solid 1px rgba(100,237,207,0.2)">
+  <ion-card-title class="ion-padding ion-text-center">
+    Send to ALL
+  </ion-card-title>
+  <ion-card-content>
+    <ion-textarea
+      fill="outline"
+      shape="round"
+      label="MSG"
+      rows="5"
+      class="ion-padding custom-textarea"
+      labelPlacement="fixed"
+      [(ngModel)]="message"
+    ></ion-textarea>
+
+  </ion-card-content>
+<div class="ion-text-center">
+  <ion-button (click)="sendMessage()" shape="round" fill="outline">SEND</ion-button>
+</div>
+</div>

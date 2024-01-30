@@ -1,0 +1,27 @@
+<div style=" border-radius: 2vh;border: solid 1px rgba(100,237,207,0.2)">
+<ion-grid>
+  <ion-row>
+    <ion-col size="4">
+      <ion-card-title>
+        <ion-text>
+          Plugin : {{economyInfo.name}}
+        </ion-text>
+      </ion-card-title>
+    </ion-col>
+    <ion-col size="4">
+      <ion-card-title>
+        <ion-text>
+          Ver: {{economyInfo.version}}
+        </ion-text>
+      </ion-card-title>
+    </ion-col>
+    <ion-col size="4">
+      <ion-card-title>
+        <ion-text>
+          Enabled : <ion-text color="success" *ngIf="economyInfo.enabled" > YES </ion-text><ion-text color="danger" *ngIf="!economyInfo.enabled" > NO </ion-text>
+        </ion-text>
+      </ion-card-title>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</div>

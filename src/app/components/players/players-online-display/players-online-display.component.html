@@ -1,0 +1,25 @@
+<ion-card style="height: 50vh">
+  <ion-card-title class="ion-padding">
+    <ion-text>
+      Online Players
+    </ion-text>
+  </ion-card-title>
+  <ion-card-content style="height: 30vh; overflow: scroll; overflow-x: hidden">
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let players of OnlinePlayerList" size-xl="2" size-xs="12">
+          <div class="ion-text-center">
+            <ion-thumbnail style="margin-left: 30%">
+              <ion-img src="https://crafatar.com/avatars/{{players.uuid}}"></ion-img>
+            </ion-thumbnail>
+            <ion-card-title>
+              <ion-text>
+                {{players.displayName}}
+              </ion-text>
+            </ion-card-title>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

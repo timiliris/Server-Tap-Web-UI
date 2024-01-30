@@ -24,3 +24,113 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Press+Start+2P&display=swap');
+ion-card{
+  border-radius: 22px;
+  border-top: 1px solid rgba(53, 152, 152, 0.63);
+  border-right: 1px solid rgba(35, 86, 86, 0.42);
+  border-left: 1px solid rgba(35, 86, 86, 0.42);
+  border-bottom: 1px solid rgba(36, 32, 32, 0.63);
+  background: linear-gradient(180deg, rgba(105, 208, 231, 0.09) 0%, rgba(20, 22, 22, 0.3) 100%);
+  animation: breathing 5s infinite alternate ease-in-out;
+  backdrop-filter: blur(5px);
+}
+ion-card-title{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+ion-label{
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+ion-text{
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+ion-card-subtitle{
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+ion-item{
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+ion-button{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.custom-input{
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.custom-textarea{
+  --font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.custom-searchbar{
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+@keyframes breathing {
+  0% {
+    box-shadow: 1px 1px 10px 1px rgba(12, 200, 240, 0.1); /* Augmentez les valeurs de flou (10px) */
+  }
+  100% {
+    box-shadow: 3px 3px 15px 3px rgba(12, 200, 240, 0.1); /* Augmentez les valeurs de flou (15px) */
+  }
+}
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1A86AE #000000;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(26, 134, 174, 0.49);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #2257B1;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #23E2E8;
+}
+*::-webkit-scrollbar-corner {
+  background: rgba(35, 226, 232, 0) !important;
+}

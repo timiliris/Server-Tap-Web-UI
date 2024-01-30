@@ -1,0 +1,40 @@
+<ion-card>
+  <ion-card-title class="ion-padding">
+    Console
+  </ion-card-title>
+  <ion-card-subtitle class="ion-padding">
+    <ion-text color="warning">
+      Be aware that not all the command executors will properly send their messages to to the CommandSender
+    </ion-text>
+  </ion-card-subtitle>
+  <ion-card-content>
+    <app-command-console></app-command-console>
+    <div class="ion-padding">
+      <ion-input
+        aria-label="CMD"
+        label="CMD"
+        labelPlacement="fixed"
+        fill="outline"
+        shape="round"
+        type="text"
+        #command>
+
+      </ion-input>
+    </div>
+    <ion-grid>
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="4">
+          <ion-button
+            color="success"
+            fill="outline"
+            shape="round"
+            expand="block"
+            (click)="sendCommand(command)"
+          >
+            SEND
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

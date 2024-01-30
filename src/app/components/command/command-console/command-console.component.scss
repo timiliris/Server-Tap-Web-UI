@@ -1,0 +1,16 @@
+/* Définition des styles pour chaque niveau de message */
+.info {
+  color: #00ffe3; /* Couleur bleue pour les messages d'information */
+}
+
+.warning {
+  color: orange; /* Couleur orange pour les messages d'avertissement */
+}
+
+.error {
+  color: red; /* Couleur rouge pour les messages d'erreur */
+}
+.container {
+  overflow-y: auto;
+  height: 100%; /* Ajustez la hauteur selon vos besoins */
+}

@@ -1,0 +1,48 @@
+<div style=" height: 83vh; border-radius: 2vh; overflow-x: hidden; overflow-y: scroll; border: solid 1px rgba(100, 237, 207, 0.2)">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xl="2" size-xs="12" *ngFor="let player of AllPlayers" id="{{player.name}}">
+        <ion-item lines="none" button class="ion-text-center">
+          <div class="thumbnail-center">
+            <ion-img src="https://crafatar.com/avatars/{{player.uuid}}"></ion-img>
+          </div>
+          <ion-card-title class="ion-text-center">
+            <ion-text>
+              {{player.name}} <ion-icon name="shield" color="warning" *ngIf="player.op"></ion-icon>
+            </ion-text>
+          </ion-card-title>
+          <ion-card-subtitle style="font-size: 200%" class="ion-text-center">
+            {{player.balance}} {{environment.currency_name}}
+          </ion-card-subtitle>
+          <ion-popover trigger="{{player.name}}" triggerAction="click" >
+            <ng-template>
+              <ion-content class="ion-padding" style="background: rgba(0,0,0,0)"> <!-- Ajustez la largeur selon vos besoins -->
+                <ion-input
+                  fill="outline"
+                  shape="round"
+                  type="number"
+                  label="AMOUNT"
+                  labelPlacement="fixed"
+                  #amount
+                >
+                </ion-input>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="6">
+                      <ion-button expand="block" fill="outline" shape="round"  color="danger" (click)="debitPlayer(amount, player.uuid); closePopover()">DEBIT</ion-button>
+                    </ion-col>
+                    <ion-col size="6">
+                      <ion-button expand="block" fill="outline" shape="round" color="success" (click)="payPlayer(amount, player.uuid); closePopover()">PAY</ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</div>

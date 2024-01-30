@@ -1,0 +1,11 @@
+.player-avatar {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.player-avatar ion-img {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}

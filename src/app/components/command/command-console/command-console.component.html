@@ -1,0 +1,14 @@
+<div style="height: 30vh; overflow: scroll">
+  <div class="ion-float-end">
+    <ion-button size="small" color="warning" (click)="webSocketService.connect()">Reconnect</ion-button>
+  </div>
+  <ion-list lines="none">
+    <ion-item *ngFor="let message of webSocketService.messages.slice().reverse()" [ngClass]="{ 'info': message.level === 'INFO', 'warning': message.level === 'WARN', 'error': message.level === 'ERROR' }">
+      <ion-label>
+        {{ message.level }} : <ion-text> {{ message.message }} </ion-text>
+        <p>{{ message.timestampMillis | date:'medium' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+

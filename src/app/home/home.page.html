@@ -1,20 +1,81 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content [fullscreen]="true" style="--ion-background-color: rgba(4,11,22,0.65)" scroll-y="false">
+  <ng-particles
+    [id]="id"
+    [options]="particle.particlesOptions"
+    [particlesInit]="particle.particlesInit"
+    (particlesLoaded)="particle.particlesLoaded($event)"
+  >
+  </ng-particles>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xl="2" class="ion-hide-md-down">
+        <ion-card style="height: 95vh">
+          <ion-list id="inbox-list" class="ion-text-center">
+            <ion-grid>
+              <ion-row class="ion-justify-content-center">
+                <ion-col size="4">
+                  <ion-img [src]="environment.logo_url" style="max-height: 10vh; max-width: 10vh;" ></ion-img>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-card-title>Server Tap Web UI</ion-card-title>
+            <div class="ion-padding-top">
+              <ion-item  button lines="none" detail="false" [ngStyle]="{'background-color': menuNav.menuNav == 'dashboard' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('dashboard')" >
+                <ion-icon slot="start" name="apps"></ion-icon>
+                <ion-label><ion-text>Dashboard</ion-text></ion-label>
+                <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+              </ion-item>
+            </div>
+            <ion-item button lines="none" detail="false" [ngStyle]="{'background-color': menuNav.menuNav == 'server' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('server')">
+              <ion-icon slot="start" name="server-outline"></ion-icon>
+              <ion-label ><ion-text>Server</ion-text></ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" [ngStyle]="{'background-color': menuNav.menuNav == 'players' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('players')">
+              <ion-icon slot="start" name="people-outline"></ion-icon>
+              <ion-label ><ion-text>Players</ion-text></ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" [ngStyle]="{'background-color': menuNav.menuNav == 'plugins' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('plugins')">
+              <ion-icon slot="start" name="layers-outline"></ion-icon>
+              <ion-label ><ion-text>Plugins</ion-text></ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false"   [ngStyle]="{'background-color': menuNav.menuNav == 'chat' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('chat')">
+              <ion-icon slot="start" name="chatbubbles-outline"></ion-icon>
+              <ion-label ><ion-text>Chat</ion-text></ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" [ngStyle]="{'background-color': menuNav.menuNav == 'economy' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('economy')">
+              <ion-icon slot="start" name="cash-outline"></ion-icon>
+              <ion-label ><ion-text>Economy</ion-text></ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false"  [ngStyle]="{'background-color': menuNav.menuNav == 'command' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('command')">
+              <ion-icon slot="start" name="code-slash-outline"></ion-icon>
+              <ion-label ><ion-text>Command</ion-text></ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" [ngStyle]="{'background-color': menuNav.menuNav == 'advancement' ? 'rgba(255,255,255,0.1)' : 'transparent'}" (click)="menuNav.Nav('advancement')">
+              <ion-icon slot="start" name="ribbon-outline"></ion-icon>
+              <ion-label><ion-text>Advancement</ion-text></ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-button (click)="auth.logout()" expand="block" fill="outline" color="danger">LOGOUT</ion-button>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+      <ion-col size-xl="10" size-xs="12">
+        <ion-card style="height: 95vh; overflow: scroll">
+          <app-dashboard-main *ngIf="menuNav.menuNav == 'dashboard'"></app-dashboard-main>
+          <app-server-main *ngIf="menuNav.menuNav == 'server'"></app-server-main>
+          <app-players-main *ngIf="menuNav.menuNav == 'players'"></app-players-main>
+          <app-chat-main *ngIf="menuNav.menuNav == 'chat'"></app-chat-main>
+          <app-economy-main *ngIf="menuNav.menuNav == 'economy'"></app-economy-main>
+          <app-command-main *ngIf="menuNav.menuNav == 'command'" ></app-command-main>
+          <app-advancement-main *ngIf="menuNav.menuNav == 'advancement'"></app-advancement-main>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
