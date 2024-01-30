@@ -76,7 +76,7 @@ if [[ $answer =~ ^[Yy][Ee][Ss]$ ]]; then
 
     if [[ $build_answer =~ ^[Yy][Ee][Ss]$ ]]; then
         read -p "Enter the name for the Docker container: " container_name
-
+        npm install
         # Construire l'image Docker avec le nom spécifié
         echo "Building Docker image..."
         docker build -t "$container_name" .

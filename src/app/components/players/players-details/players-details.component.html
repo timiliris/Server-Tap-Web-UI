@@ -1,3 +1,192 @@
-<p>
-  players-details works!
-</p>
+<div style="height: 91vh; border-radius: 2vh;border: solid 1px rgba(100,237,207,0.2)">
+  <div *ngIf="!player.playerInfo">
+    y'a pas d'info
+  </div>
+  <div *ngIf="player.playerInfo">
+    <ion-card-title class="ion-padding ion-text-center">
+      {{player.playerInfo.displayName}}
+    </ion-card-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-img src="https://crafatar.com/renders/body/{{player.playerInfo.uuid}}" style="height: 30vh"></ion-img>
+        </ion-col>
+        <ion-col size="8">
+          <ion-list>
+            <ion-card-subtitle class="ion-padding-start">
+              Display Name
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon color="primary" slot="start" name="man-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.displayName}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              OP
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon color="warning" slot="start" name="shield-outline"></ion-icon>
+              <ion-label>
+                <ion-text color="success" *ngIf="player.playerInfo.op">YES</ion-text>
+                <ion-text color="danger" *ngIf="!player.playerInfo.op">NO</ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Game Mode
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: #ff0028" slot="start" name="game-controller-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.gamemode}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Uuid
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: #f59e01" slot="start" name="finger-print-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.uuid}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-card-title class="ion-padding">
+            HEALTH
+          </ion-card-title>
+          <ion-list>
+            <ion-card-subtitle class="ion-padding-start">
+              Heart
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon color="danger" slot="start" name="heart-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{(player.playerInfo.health/2)}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Hunger
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: #724c02" slot="start" name="fast-food-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.hunger/2}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Saturation
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: #ffdb00" slot="start" name="bonfire-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.saturation}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Exp
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon color="success" slot="start" name="flask-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.exp}} exp
+                </ion-text>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card-title class="ion-padding">
+            POSITION
+          </ion-card-title>
+          <ion-list>
+            <ion-card-subtitle class="ion-padding-start">
+              Dimension
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: palegreen" slot="start" name="map-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.dimension}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Location
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: purple" slot="start" name="locate-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  <div *ngIf="player.playerInfo.location && player.playerInfo.location.length >= 3">
+                    X: {{ player.playerInfo.location[0] | number: '1.0-0' }} / Y: {{ player.playerInfo.location[1] | number: '1.0-0' }} / Z: {{ player.playerInfo.location[2] | number: '1.0-0' }}
+                  </div>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+
+
+        <ion-col size="4">
+          <ion-card-title class="ion-padding">
+            NETWORK
+          </ion-card-title>
+          <ion-list>
+            <ion-card-subtitle class="ion-padding-start">
+              Address
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: darkblue" slot="start" name="globe-outline"></ion-icon>
+              <ion-text>
+                <ion-label>
+                  <ion-text>{{player.playerInfo.address}}</ion-text>
+                </ion-label>
+              </ion-text>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Port
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: orange" slot="start" name="git-branch-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{player.playerInfo.port}}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-card-subtitle class="ion-padding-start">
+              Last Seen
+            </ion-card-subtitle>
+            <ion-item lines="none">
+              <ion-icon style="color: #5500ff" slot="start" name="eye-outline"></ion-icon>
+              <ion-label>
+                <ion-text>
+                  {{ player.playerInfo.lastPlayed | date: 'dd/MM/yyyy HH:mm:ss' }}
+                </ion-text>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
