@@ -1,104 +1,67 @@
 <div *ngIf="serverInfo">
-        <ion-card style="height: 50vh">
-          <div *ngIf="!serverInfo.tps">
-            <ion-card-title class="ion-padding">
-              <ion-text class="ion-padding">
-                <ion-icon name="server-outline"></ion-icon>
-                {{environment.server_name}}
-              </ion-text>
-              <div class="ion-float-end">
-                <ion-text class="ion-margin-end" >
-                  Offline
-                </ion-text>
-                <div class="ion-float-end breathing-circle-offline">
-                </div>
-              </div>
-            </ion-card-title>
+  <ion-card-title class="ion-text-center ion-padding">
+    DASHBOARD
+  </ion-card-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card-title class="ion-text-center ion-padding">
+          {{environment.server_name}}
+        </ion-card-title>
+        <ion-card-subtitle class="ion-text-center">
+          Version : {{serverInfo.bukkitVersion}}
+        </ion-card-subtitle>
+        <ion-card-subtitle class="ion-padding">
+          <div class="ion-float-start">
+            modt : {{serverInfo.motd}}
           </div>
-          <div *ngIf="serverInfo.tps">
+
+
+          <div class="ion-float-end" *ngIf="!serverInfo">
+            <ion-card>
+              <ion-text class="ion-padding">
+                Offline
+              </ion-text>
+              <div class="ion-float-end breathing-circle-offline">
+              </div>
+            </ion-card>
+          </div>
+          <div *ngIf="serverInfo" class="ion-float-end">
+            <ion-card>
               <ion-card-title class="ion-padding">
-                <ion-text class="ion-padding">
-                  <ion-icon name="server-outline"></ion-icon>
-                  {{environment.server_name}}
+                <ion-text class="ion-margin-end" >
+                  Online
                 </ion-text>
-                <div class="ion-float-end">
-                  <ion-text class="ion-margin-end" >
-                    Online
-                  </ion-text>
-                  <div class="ion-float-end breathing-circle">
-                  </div>
+                <div class=" ion-float-end breathing-circle">
                 </div>
               </ion-card-title>
-            <ion-card-subtitle class="ion-padding-start">
-              {{serverInfo.motd}}
-            </ion-card-subtitle>
               <ion-card-content>
-                <ion-grid>
-                  <ion-row>
-                    <ion-col size="6">
-                      <ion-item lines="none">
-                        <ion-icon class="ion-padding-end" color="danger" name="heart"></ion-icon>
-                        <ion-label>
-                          <ion-text>
-                            {{serverInfo.health.cpus}}
-                          </ion-text>
-                        </ion-label>
-                        <ion-card-subtitle>
-                          Cores
-                        </ion-card-subtitle>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col size="6">
-                      <ion-item lines="none">
-                        <ion-icon class="ion-padding-end" color="secondary" name="fitness"></ion-icon>
-                        <ion-label>
-                          <ion-text>
-                            {{serverInfo.tps}}
-                          </ion-text>
-                        </ion-label>
-                        <ion-card-subtitle>
-                          Tps
-                        </ion-card-subtitle>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-
                 <ion-item lines="none">
-                  <ion-icon slot="start" color="primary" name="speedometer"></ion-icon>
+                  <ion-icon slot="start" color="danger" name="heart"></ion-icon>
                   <ion-label>
-                    <ion-text>
-                      {{formatMemory(serverInfo.health.totalMemory - serverInfo.health.freeMemory)}}  / {{formatMemory(serverInfo.health.maxMemory)}}
-                    </ion-text>
+                    {{serverInfo.health.cpus}}
                   </ion-label>
-                  <ion-card-subtitle>
-                    Memory
-                  </ion-card-subtitle>
                 </ion-item>
                 <ion-item lines="none">
-                  <ion-icon slot="start" color="warning" name="stopwatch"></ion-icon>
-                  <ion-label>
-                    <ion-text>
-                      {{ formatDuration(serverInfo.health.uptime) }}
-                    </ion-text>
-                  </ion-label>
-                  <ion-card-subtitle>
-                    Uptime
-                  </ion-card-subtitle>
+                  <ion-icon slot="start" color="warning" name="stopwatch"></ion-icon>                    <ion-label>
+                </ion-label>
                 </ion-item>
                 <ion-item lines="none">
                   <ion-icon color="success" slot="start" name="people"></ion-icon>
                   <ion-label>
-                    <ion-text>
-                      {{serverInfo.onlinePlayers}}/{{serverInfo.maxPlayers}}
-                    </ion-text>
+                    {{serverInfo.onlinePlayers}}/{{serverInfo.maxPlayers}}
                   </ion-label>
-                  <ion-card-subtitle>
-                    Players
-                  </ion-card-subtitle>
                 </ion-item>
               </ion-card-content>
+
+            </ion-card>
           </div>
-        </ion-card>
+        </ion-card-subtitle>
+        <ion-card-content class="ion-padding">
+          content of the card
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </div>
 

@@ -1,0 +1,78 @@
+<ion-content [fullscreen]="true" style="--ion-background-color: rgba(11,31,59,0.54)">
+  <ng-particles
+    [id]="id"
+    [options]="particle.particlesOptions"
+    [particlesInit]="particle.particlesInit"
+    (particlesLoaded)="particle.particlesLoaded($event)"
+  >
+  </ng-particles>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-card style="height: 95vh">
+          <ion-list id="inbox-list" class="ion-text-center">
+            <ion-grid>
+              <ion-row class="ion-justify-content-center">
+                <ion-col size="4">
+                  <ion-img [src]="environment.logo_url" style="max-height: 10vh; max-width: 10vh;" ></ion-img>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-card-title>Server Tap Web UI</ion-card-title>
+            <div class="ion-padding-top">
+              <ion-item  button lines="none" detail="false" (click)="menuNav.Nav('dashboard')" >
+                <ion-icon slot="start" name="apps"></ion-icon>
+                <ion-label >Dashboard</ion-label>
+                <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+              </ion-item>
+            </div>
+            <ion-item button lines="none" detail="false" (click)="menuNav.Nav('server')">
+              <ion-icon slot="start" name="server-outline"></ion-icon>              <ion-label >Server</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" (click)="menuNav.Nav('players')">
+              <ion-icon slot="start" name="people-outline"></ion-icon>              <ion-label >Players</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" (click)="menuNav.Nav('plugins')">
+              <ion-icon slot="start" name="layers-outline"></ion-icon>
+              <ion-label >Plugins</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" (click)="menuNav.Nav('chat')">
+              <ion-icon slot="start" name="chatbubbles-outline"></ion-icon>
+              <ion-label >Chat</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" (click)="menuNav.Nav('economy')">
+              <ion-icon slot="start" name="cash-outline"></ion-icon>
+              <ion-label >Economy</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" (click)="menuNav.Nav('placeholder')">
+              <ion-icon slot="start" name="library-outline"></ion-icon>
+              <ion-label >Placeholder Api</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+            <ion-item button routerDirection="root" lines="none" detail="false" (click)="menuNav.Nav('advancement')">
+              <ion-icon slot="start" name="ribbon-outline"></ion-icon>
+              <ion-label >Advancement</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+      <ion-col size="10">
+        <ion-card style="height: 95vh">
+          <app-players-main *ngIf="menuNav.menuNav == 'players'" ></app-players-main>
+          <app-server-main *ngIf="menuNav.menuNav == 'server'" ></app-server-main>
+          <app-plugins-main *ngIf="menuNav.menuNav == 'plugins'" ></app-plugins-main>
+          <app-chat-main *ngIf="menuNav.menuNav == 'chat'" ></app-chat-main>
+          <app-economy-main *ngIf="menuNav.menuNav == 'economy'"></app-economy-main>
+          <app-placeholder-main *ngIf="menuNav.menuNav == 'placeholder'"></app-placeholder-main>
+          <app-advancement-main *ngIf="menuNav.menuNav =='advancement'"></app-advancement-main>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

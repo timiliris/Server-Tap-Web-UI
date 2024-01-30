@@ -13,7 +13,7 @@ export class DashboardMainComponent  implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.getServerInfo()
+
   }
 
   getServerInfo(){

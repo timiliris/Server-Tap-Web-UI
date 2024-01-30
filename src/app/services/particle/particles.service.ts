@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ClickMode, Container, Engine, HoverMode, MoveDirection, OutMode } from "tsparticles-engine";
-
+// @ts-ignore
 import { loadSlim } from "tsparticles-slim";
 
 @Injectable({
